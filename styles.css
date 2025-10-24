@@ -98,9 +98,9 @@ color: white;
 
 .button {
     font-size: 1.5em;
-    color: white;
+    color: #080808;
     text-decoration: none;
-    background: radial-gradient(circle, rgb(7, 118, 146), rgb(143, 16, 90), rgba(18, 96, 212, 0.178));
+    background:#f5e8d0;
     padding: 5px 15px; 
     border-radius: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
@@ -109,7 +109,7 @@ color: white;
 }
 
 .button:hover {
-    background: radial-gradient(circle, rgb(143, 16, 90), rgb(7, 118, 146));
+    background: radial-gradient(circle, rgb(114, 100, 108), rgb(251, 253, 253));
 }
 
 
@@ -149,7 +149,7 @@ color: white;
     font-family: "Trade Winds", cursive;
     font-size: 3em; /* Increased size */
     font-weight: bold;
-    color: black; 
+    color: rgb(197, 7, 7); 
     text-decoration: none; 
     display: block; 
     margin-bottom: 10px;
@@ -157,7 +157,7 @@ color: white;
 
 /* Target the "us" span inside the .thea link */
 .about-text-column .thea span {
-    color: red; 
+    color: rgb(0, 0, 0); 
 }
 
 /* Styles for the paragraph (Trade Winds font) */
@@ -300,11 +300,97 @@ color: white;
 
 /* --- SEPARATOR STYLE --- */
 .separator {
-  border-radius: 40px;
-  display: block;
-  justify-content: center;
-    width: 80%;
-    border: 5px solid #883939;
-    margin-right: 1px 0;
-
+  border-radius: 120px;
+  width: 100%;
+  border: 5px solid #69544ba4;
+  margin-right: 1px 0;
 }
+
+.menu-header span {
+    color: #fa0202;
+}
+
+.menu-header .ourm{
+    color: black;
+    font-size: 2.5rem;
+    text-decoration: none;
+}
+
+.menu-header p{
+  font-size: 1.5rem;
+}
+
+.mbutton {
+    width: 200px;
+    font-size: 1.5em;
+    color: #080808;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background:#f5e8d0;
+    padding: 5px 15px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+    letter-spacing: 3px;
+    line-height: normal;
+    margin: auto;
+    flex-wrap: wrap;
+    align-content: center;
+  } 
+
+  .kitchenexperts{
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Space between items */
+    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+    max-width: 1200px; /* Limits the overall width of the menu items */
+    margin: auto;
+    background-color: #f5e8d0;
+  }
+
+  .ourexperts{
+    background-color: #f5e8d0;
+    text-align: center;
+    margin-bottom: 10px;
+    margin: 100px;
+    margin-top: auto;
+    
+  }
+
+  .ourexperts p{
+    color: #999393;
+  }
+  .ourexperts h2{
+    color: #080808;
+  }
+
+  .ourexperts span{
+    color: #c70000;
+  }
+  
+  .eximgwrapper{
+    width: 280px; /* Fixed width for the menu card */
+    background-color:  white;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.3s ease;
+    text-align: center;
+    flex-shrink: 0;
+    margin-bottom: 20px;
+}
+
+.eximgwrapper:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+  
+
+  .eximgwrapper img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+  }
