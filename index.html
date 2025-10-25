@@ -1,5 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+<!--
+  index.html - FoodSpot
+  -----------------------------------------
+  Simple static landing page structure:
+  - header: top navigation and site logo
+  - Banner: hero section with CTA
+  - About: two-column section (text + image)
+  - Menu: grid of menu items
+  - Kitchen Experts: staff cards
+  - Small JS snippet toggles mobile menu icon and class
+  Comments placed throughout the file explain each section.
+-->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +23,8 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Site header: logo on the left, navigation on the right. 
+      `position: absolute` is used in the CSS so the header sits over the Banner. -->
     <header>
         <a href="#" class="logo">Food<span>Spot</span></a>
         
@@ -28,7 +42,8 @@
     </header>
 
 
-    <section class="Banner">
+  <!-- Banner / hero section: centered content with background image and CTA -->
+  <section class="Banner">
         <div class="Content">
             <h2>Always Choose Good Food</h2>
             <p>Why keep Looking for spots when we're the Spot!</p>
@@ -36,7 +51,8 @@
         </div>
     </section>
 
-<script>
+  <!-- Mobile menu JS: toggles the `.active` class on the nav and swaps the icon -->
+  <script>
     const menuToggle = document.getElementById("menu-toggle");
     const nav = document.getElementById("nav");
 
@@ -54,6 +70,7 @@
     });
   </script>
 
+  <!-- About section: two-column layout (text left, image right). On small screens this stacks. -->
   <div class="about" id="aboutsec">
     
     <div class="about-text-column">
@@ -67,6 +84,7 @@
   </div>
   <div class="separator"></div>
   
+  <!-- Menu section: shows menu items in a centered, responsive grid -->
   <section class="menu-section" id="menu-sec">
     <div class="menu-header">
        <a href="#" class="ourm">Our<span> M</span>enu</a>
@@ -112,22 +130,51 @@
     </div>
     <a href="#" class="mbutton">View Menu</a>
 </section>
-
+  <!-- Kitchen Experts: staff cards with images and names. Uses flexbox to layout cards in a row. -->
 <div class="kitchenexperts">
   <div class="ourexperts">
     <h2> Our Kitchen <span>E</span>xperts</h2>
     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt, unde.</p>
   </div>
+  
+  <div class="experts-row">
+      
+      <div class="expert-card">
+        <div class="eximgwrapper">
+          <img src="imgs/expert1.jpg" alt="expert 1">
+        </div>
+        <h3>Expert 1</h3>
+      </div>
+      
+      <div class="expert-card">
+        <div class="eximgwrapper">
+          <img src="imgs/expert2.jpg" alt="expert 2"> 
+        </div>
+        <h3>Expert 2</h3>
+      </div>
+      
+      <div class="expert-card">
+        <div class="eximgwrapper">
+          <img src="imgs/expert3.jpg" alt="expert 3">
+        </div>
+        <h3>Expert 3</h3>
+      </div>
 
-  <div class="expert1">
-    <div class="eximgwrapper">
-      <img src="imgs/expert1.jpg" alt="expert 1">
-    </div>
-    <h3>Expert 1</h3>
+      <div class="expert-card">
+        <div class="eximgwrapper">
+          <img src="imgs/expert4.jpg" alt="expert 4">
+        </div>
+        <h3>Expert 4</h3>
+      </div>
+      
+      <div class="expert-card">
+        <div class="eximgwrapper">
+          <img src="imgs/expert5.jpg" alt="expert 5">
+        </div>
+        <h3>Expert 5</h3>
+      </div>
+      
   </div>
-
-  </div>
-
 </div>
 </body>
 </html>

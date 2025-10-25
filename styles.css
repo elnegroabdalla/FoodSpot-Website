@@ -1,12 +1,19 @@
+/* styles.css - Purpose: global styles and section-specific rules for FoodSpot page
+    - Keep sections grouped and commented for easier maintenance.
+    - Use the Trade Winds font for headings and a system font for body text.
+*/
+
 @import url('https://fonts.googleapis.com/css2?family=Trade+Winds&display=swap');
 
-/* GLOBAL RESETS AND BASE FONT */
+/* GLOBAL RESETS AND BASE FONT
+    Resets default margin/padding and sets a base font stack. 
+    `box-sizing: border-box` makes sizing more predictable. */
 * {
-    margin: 0;
-    padding: 0; 
-    box-sizing: border-box;
-    font-family: "Trade Winds", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Trade Winds", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  scroll-behavior: smooth;
 }
 
 /* BASE STYLES FOR ELEMENTS (Used in Banner section, but can be global) */
@@ -24,19 +31,22 @@ p {
 }
 
 
-/* --- HEADER AND NAVIGATION --- */
+/* --- HEADER AND NAVIGATION ---
+     The header is absolutely positioned so it overlays the Banner; 
+     `justify-content: space-between` places logo left and nav right. */
 header {
-    position: absolute;
+    position: absolute; /* anchors header to the top of the page */
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 10;
+    z-index: 10; /* place above Banner background */
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* logo left, nav right */
     align-items: center;
-    padding: 25px 80px;
+    padding: 25px 80px; /* space inside header; reduces on small screens via media queries */
 }
 
+/* Logo styling. The inner span is used to color one letter (accent). */
 .logo {
     color: white;
     font-weight: bold;
@@ -45,8 +55,8 @@ header {
 }
 
 header .logo span {
-    color: red;
-} 
+    color: red; /* accent color for one letter in the logo */
+}
 
 header .Nav {
     display: flex;
@@ -77,18 +87,19 @@ header .Nav li a {
 
 
 /* --- BANNER SECTION --- */
+/* Banner / Hero section
+     Uses a background image with a semi-transparent gradient overlay so white text remains legible. */
 .Banner {
-width: 100%;
-min-height: 100vh;
-display: flex;
-align-items: center;
-justify-content: center;
-background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)),
-url(https://i.postimg.cc/s29LNR86/bg.jpg);
-background-size: cover;
-background-position: center;
-text-align: center;
-padding: 10px;
+    width: 100%;
+    min-height: 100vh; /* full screen hero */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)), url(https://i.postimg.cc/s29LNR86/bg.jpg);
+    background-size: cover; /* cover scales the image to fill area */
+    background-position: center;
+    text-align: center;
+    padding: 10px;
 }
 
 .Content { 
@@ -115,15 +126,16 @@ color: white;
 
 /* --- ABOUT SECTION --- */
 
+/* About section: two-column layout (text + image). 
+     We use flexbox so columns can naturally wrap on small screens. */
 #aboutsec {
     width: 100%;
-    background: #f5e8d0; 
-    padding: 60px 80px; 
+    background: #f5e8d0;
+    padding: 60px 80px; /* top/bottom then left/right padding */
     margin: 0;
-    /* Flexbox for side-by-side layout */
-    display: flex;
-    gap: 60px; 
-    align-items: flex-start; 
+    display: flex; /* creates two columns */
+    gap: 60px; /* space between columns */
+    align-items: flex-start; /* top-align the columns */
 }
 
 .about-image-column {
@@ -138,6 +150,7 @@ color: white;
     max-width: 60%;
 }
 
+/* Make about image responsive and rounded */
 .about-image-column img {
     width: 100%;
     height: auto;
@@ -209,9 +222,10 @@ color: white;
     }
 }
 /* --- MENU SECTION --- */
+/* Menu section contains a header and a flex grid of menu items. */
 .menu-section {
     padding: 80px 40px;
-    background-color: #f5e8d0; /* Ensures a clean white background */
+    background-color: #f5e8d0;
     text-align: center;
 }
 
@@ -244,15 +258,16 @@ color: white;
     margin: 0 auto; /* Centers the grid container */
 }
 
+/* Individual menu card styles */
 .menu-item {
-    width: 280px; /* Fixed width for the menu card */
+    width: 280px; /* fixed card width to make grid consistent */
     background-color: white;
     padding: 15px;
     border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
     text-align: center;
-    flex-shrink: 0;
+    flex-shrink: 0; /* prevents cards shrinking below width */
     margin-bottom: 20px;
 }
 
@@ -340,57 +355,114 @@ color: white;
     align-content: center;
   } 
 
-  .kitchenexperts{
+  
+  /* --- KITCHEN EXPERTS SECTION --- */
+/* Kitchen Experts section: full-width background with centered content. 
+     The inner `.experts-row` centers the card column so the background spans the viewport. */
+.kitchenexperts {
     display: flex;
-    justify-content: center;
-    gap: 30px; /* Space between items */
-    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
-    max-width: 1200px; /* Limits the overall width of the menu items */
-    margin: auto;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 0;
     background-color: #f5e8d0;
-  }
-
-  .ourexperts{
-    background-color: #f5e8d0;
-    text-align: center;
-    margin-bottom: 10px;
-    margin: 100px;
-    margin-top: auto;
-    
-  }
-
-  .ourexperts p{
-    color: #999393;
-  }
-  .ourexperts h2{
-    color: #080808;
-  }
-
-  .ourexperts span{
-    color: #c70000;
-  }
-  
-  .eximgwrapper{
-    width: 280px; /* Fixed width for the menu card */
-    background-color:  white;
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    transition: transform 0.3s ease;
-    text-align: center;
-    flex-shrink: 0;
-    margin-bottom: 20px;
+    padding: 60px 0 80px; /* top, left/right 0, bottom for spacing */
 }
 
-.eximgwrapper:hover {
-    transform: translateY(-5px); /* Lift effect on hover */
+.ourexperts {
+  background-color: #f5e8d0;
+  text-align: center;
+  /* Top, Right, Bottom, Left margin */
+  margin: 80px 0 40px 0; 
+  max-width: 800px; 
 }
-  
 
-  .eximgwrapper img{
+.ourexperts p {
+  color: #999393;
+}
+.ourexperts h2 {
+  color: #080808;
+}
+
+.ourexperts span {
+  color: #c70000;
+}
+
+/* New container for the experts themselves (horizontal row) */
+.experts-row {
+    display: flex;
+    justify-content: center; /* center the expert cards in the section */
+    gap: 36px; /* space between expert cards */
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1400px; /* allow up to five cards to sit comfortably */
+    margin: 0 auto; /* center that column inside the full-width section */
+    padding: 10px 20px;
+}
+
+.expert-card {
+    /* Card with white panel, inner image frame and caption area */
+    width: 260px;
+    background: #ffffff;
+    border-radius: 6px;
+    box-shadow: 0 18px 32px rgba(0, 0, 0, 0.07);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+    padding: 12px; /* outer padding creates the white frame around image */
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.expert-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 34px 60px rgba(0,0,0,0.12);
+}
+
+.eximgwrapper {
+    width: 100%;
+    height: 340px; /* fixed visual height to match screenshot proportions */
+    overflow: hidden;
+    border-radius: 4px;
+    margin-bottom: 14px;
+    background: #ffffff; /* ensure inner frame is white */
     display: block;
+    box-shadow: inset 0 0 0 6px #ffffff; /* thick white border effect */
+}
+
+.eximgwrapper img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
+    border-radius: 2px;
+}
 
-  }
+.expert-card h3 {
+    /* caption area (inside the white panel) */
+    font-size: 1.05em;
+    color: #080808;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-weight: 700;
+    margin: 0;
+    padding: 12px 0 6px;
+}
+
+/* Responsive: reduce card width / stack on small screens */
+@media (max-width: 1100px) {
+    .expert-card { width: 220px; }
+    .eximgwrapper { height: 300px; }
+    .experts-row { gap: 28px; }
+}
+
+@media (max-width: 700px) {
+    .expert-card { width: 46%; }
+    .eximgwrapper { height: 260px; }
+}
+
+@media (max-width: 420px) {
+    .expert-card { width: 100%; }
+    .eximgwrapper { height: 220px; }
+}
+
+    
